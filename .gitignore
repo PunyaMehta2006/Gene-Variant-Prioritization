@@ -1,0 +1,14 @@
+# Ignore raw datasets and large download files
+Control_JSNP550typed/
+ControliJSNP550typedj/
+*.gct.gz
+variant_summary.txt
+variant_summary.txt.gz
+cadd_scores.tsv
+cadd_scores.tsv.gz
+*.vcf.gz
+
+# Ignore local output reports & office files
+Patient_Diagnostic_Report*.xlsx
+*.pptx
+*.pdf
