@@ -1,0 +1,16 @@
+##fileformat=VCFv4.2
+##source=HeartShield_Dashboard_Test_Generator
+##reference=GRCh38
+##INFO=<ID=GENE,Number=1,Type=String,Description="Canonical Gene Symbol">
+##INFO=<ID=CLNSIG,Number=1,Type=String,Description="Clinical Significance">
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=AD,Number=R,Type=Integer,Description="Allele Depths">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	PATIENT_001
+11	47364097	rs72552763	G	A	99.0	PASS	GENE=MYBPC3;CLNSIG=Pathogenic	GT:AD:DP:GQ	0/1:15,15:30:99
+14	23888326	rs11549465	C	T	99.0	PASS	GENE=MYH7;CLNSIG=Pathogenic	GT:AD:DP:GQ	0/1:18,22:40:99
+19	11100234	rs121964858	A	G	99.0	PASS	GENE=LDLR;CLNSIG=Pathogenic	GT:AD:DP:GQ	0/1:12,12:24:99
+6	26093141	rs1800562	G	A	99.0	PASS	GENE=HFE;CLNSIG=Pathogenic	GT:AD:DP:GQ	1/1:0,35:35:99
+6	26093142	rs1800758	C	G	99.0	PASS	GENE=HFE;CLNSIG=Benign	GT:AD:DP:GQ	0/1:20,20:40:99
+4	73404253	ALB:Syn:01	T	C	99.0	PASS	GENE=ALB;CLNSIG=Benign	GT:AD:DP:GQ	0/1:15,15:30:99
