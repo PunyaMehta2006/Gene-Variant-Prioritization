@@ -20,6 +20,9 @@ class HeartShieldRFModel:
         self.test_metrics = {}
         self.is_trained = False
 
+import sys
+setattr(sys.modules['__main__'], 'HeartShieldRFModel', HeartShieldRFModel)
+
 @st.cache_resource
 def load_ml_model():
     if os.path.exists("heartshield_rf_model_v5.joblib"):
@@ -242,17 +245,6 @@ def load_data(filepath):
         data[sheet_name] = excel_file.parse(sheet_name)
     return data
 
-@st.cache_resource(show_spinner="Loading GTEx & JSNP genomic databases...")
-def get_initialized_engine():
-    try:
-        engine = HeartShieldEngineV3(
-            jsnp_dir_path="./Control_JSNP550typed",
-            gtex_tpm_path="./GTEx_Analysis_2025-08-22_v11_RNASeQCv2.4.3_gene_median_tpm.gct.gz",
-            clinvar_path="./variant_summary.txt",
-        )
-        return engine
-    except NameError:
-        return None
 
 if "scored_results" not in st.session_state:
     st.session_state.scored_results = None
@@ -292,8 +284,8 @@ if view_mode == "📁 Upload Patient VCF":
             help="Upload a standard VCF file containing GENE, CADD, and AF in the INFO field."
         )
 
-        cohort_options = ["dashboard_test_sample.vcf", "patient_clinical_sample.vcf", "sample_random.vcf"]
-        selected_sample_cohort = st.selectbox("Or choose an existing verification cohort:", cohort_options, index=1)
+        cohort_options = ["dashboard_test_sample_v2.vcf", "dashboard_test_sample.vcf", "patient_clinical_sample.vcf", "sample_random.vcf"]
+        selected_sample_cohort = st.selectbox("Or choose an existing verification cohort:", cohort_options, index=0)
         use_sample = st.checkbox("Run with selected cohort above", value=(uploaded_file is None))
 
         btn_run = st.button("🚀 Execute Prioritization Pipeline", type="primary")
